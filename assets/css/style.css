@@ -1,10 +1,18 @@
+.modal-static {
+    position: static;
+    display: block !important; 
+    z-index: 1;
+}
+
+.modal-content {
+    border-radius: 0;
+    max-width: 100%;
+    max-height: 100vh;
+    overflow-y: auto; 
+}
+
 body {
+    background-color: #e3f2fd !important;
     font-family: Arial, sans-serif;
-}
-.question {
-    margin-bottom: 20px;
-}
-.result {
-    margin-top: 20px;
-    font-weight: bold;
+    color: #333;
 }

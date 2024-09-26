@@ -1,4 +1,3 @@
-// Example JSON structure for decision tree
 const decisionTree = {
     "steps": [
         {

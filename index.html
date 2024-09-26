@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Inheritance Questionnaire</title>
-</head>
-<body>
-
-    <div id="questionnaire">
-        <div id="question-container" class="question"></div>
-        <div id="choices-container">
-            <button id="yes-btn" onclick="handleAnswer('yes')">Yes</button>
-            <button id="no-btn" onclick="handleAnswer('no')">No</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <title>Inheritance Questionnaire</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="modal-static modal show">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Questionnaire</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div id="question-container">
+                                <p id="question-text">Was the deceased/testator married?</p>
+                            </div>
+                            <div id="result-container" class="mt-4"></div>
+                        </div>
+                        <div class="modal-footer" id="choices-container">
+                            <button class="btn btn-success" id="yes-btn" onclick="handleAnswer('yes')">Yes</button>
+                            <button class="btn btn-danger" id="no-btn" onclick="handleAnswer('no')">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div id="result-container" class="result"></div>
 
-    <script src="assets/js/decision-tree-test.js"></script>
-</body>
+        <!-- Bootstrap 5 JS -->
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/decision-tree-test.js"></script>
+    </body>
 </html>
