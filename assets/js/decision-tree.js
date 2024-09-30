@@ -41,15 +41,15 @@ function displayQuestion(stepId) {
         // Dynamically generate buttons based on the choices in the JSON
         for (const [choiceText, nextStepId] of Object.entries(step.choices)) {
             const button = document.createElement('button');
-            button.innerText = choiceText; // This will use the specific text from the JSON keys
-            button.classList.add('btn', 'btn-primary', 'm-2'); // Add Bootstrap classes for styling
-            button.onclick = () => handleAnswer(choiceText); // Pass the choice to handleAnswer
+            button.innerText = choiceText; 
+            button.classList.add('btn', 'btn-primary', 'm-2'); 
+            button.onclick = () => handleAnswer(choiceText);
             choicesContainer.appendChild(button);
         }
         
         // Ensure choices container is visible
         document.getElementById('choices-container').style.display = 'block';
-        document.getElementById('result-container').innerHTML = ''; // Clear previous result
+        document.getElementById('result-container').innerHTML = '';
     } else if (step.outcome) {
         displayOutcome(step);
     }
