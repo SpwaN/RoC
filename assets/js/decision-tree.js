@@ -3,7 +3,7 @@ let currentStepId = 1;
 
 // Load the decision tree JSON dynamically
 function loadDecisionTree() {
-    fetch('../json/decision-tree.json')
+    fetch('https://raw.githubusercontent.com/SpwaN/RoC/main/assets/json/decision-tree.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to load decision tree JSON');
