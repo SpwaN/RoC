@@ -1,72 +1,89 @@
 {
-    "steps": [
+  "steps": [
       {
-        "id": 1,
-        "question": "Was the deceased/testator married?",
-        "yes": 2,
-        "no": "legal_order_inheritance_alt_will",
-        "legal_sources": "3 kap. 1 § ÄB & e contrario 2 kap. 1-3 §§ ÄB 5 kap. 1 § ÄB"
+          "id": 1,
+          "question": "Was the deceased/testator married?",
+          "choices": {
+              "Yes": 2,
+              "No": 10
+          },
+          "legal_sources": "3 kap. 1 § ÄB & e contrario 2 kap. 1-3 §§ ÄB 5 kap. 1 § ÄB"
       },
       {
-        "id": 2,
-        "question": "Was there a pending divorce case at the time of the deceased’s/testator’s death?",
-        "yes": "legal_order_inheritance_alt_will",
-        "no": 3,
-        "legal_sources": "3 kap. 1 § ÄB"
+          "id": 2,
+          "question": "Was there a pending divorce case at the time of the deceased’s/testator’s death?",
+          "choices": {
+              "Yes": 10,
+              "No": 3
+          },
+          "legal_sources": "3 kap. 1 § ÄB"
       },
       {
-        "id": 3,
-        "question": "Is there a valid will?",
-        "yes": "no_inheritance_spouse",
-        "no": 4,
-        "legal_sources": "3 kap. 10 § ÄB"
+          "id": 3,
+          "question": "Is there a valid will?",
+          "choices": {
+              "Yes": 11,
+              "No": 4
+          },
+          "legal_sources": "3 kap. 10 § ÄB"
       },
       {
-        "id": 4,
-        "question": "Does the deceased/testator have any surviving children?",
-        "yes": 5,
-        "no": "spouse_right_to_4_price_base",
-        "legal_sources": "3 kap. 1 § 2 st. ÄB"
+          "id": 4,
+          "question": "Does the deceased/testator have any surviving children?",
+          "choices": {
+              "Yes": 5,
+              "No": 12
+          },
+          "legal_sources": "3 kap. 1 § 2 st. ÄB"
       },
       {
-        "id": 5,
-        "question": "Does the deceased/testator have children from another relationship?",
-        "yes": 6,
-        "no": "spouse_inherits_shared_children",
-        "legal_sources": "3 kap. 1 § 1 st ÄB 3 kap. 2 § ÄB"
+          "id": 5,
+          "question": "Does the deceased/testator have children?",
+          "choices": {
+              "Choice A": 6,
+              "Choice B": 13,
+              "Choice C": 14
+          },
+          "legal_sources": "3 kap. 1 § ÄB"
       },
       {
-        "id": 6,
-        "question": "Have they waived their inheritance rights?",
-        "yes": "spouse_inherits_shared_children",
-        "no": "children_right_to_inheritance",
-        "legal_sources": "3 kap. 1 § 1 st 2 m. ÄB 3 kap. 9 § ÄB"
+          "id": 6,
+          "question": "Have they waived their inheritance rights?",
+          "choices": {
+              "Yes": 15,
+              "No": 14
+          },
+          "legal_sources": "3 kap. 1 § 1 st 2 m. ÄB 3 kap. 9 § ÄB"
       },
       {
-        "id": "spouse_inherits_shared_children",
-        "outcome": "The spouse inherits with free disposal rights. Shared children have a right to subsequent inheritance.",
-        "legal_sources": "3 kap. 1 § 1 st. ÄB 3 kap. 2 § ÄB Prop. 1986/87:1 s. 2"
+          "id": 10,
+          "outcome": "The legal order of inheritance alt. Will.",
+          "legal_sources": "3 kap. 1 § ÄB & e contrario 2 kap. 1-3 §§ ÄB 5 kap. 1 § ÄB"
       },
       {
-        "id": "spouse_right_to_4_price_base",
-        "outcome": "The spouse’s right to at least 4 price base amounts.",
-        "legal_sources": "3 kap. 1 § 2 st. ÄB (2 kap. 6-7 §§ SFB)"
+          "id": 11,
+          "outcome": "No inheritance right of spouse. The legal order of inheritance alt. Will.",
+          "legal_sources": "3 kap. 10 § ÄB"
       },
       {
-        "id": "no_inheritance_spouse",
-        "outcome": "No inheritance right of spouse. The legal order of inheritance alt. Will.",
-        "legal_sources": "3 kap. 10 § ÄB"
+          "id": 12,
+          "outcome": "The spouse’s right to at least 4 price base amounts.",
+          "legal_sources": "3 kap. 1 § 2 st. ÄB (2 kap. 6-7 §§ SFB)"
       },
       {
-        "id": "children_right_to_inheritance",
-        "outcome": "Children from another relationship have the right to their inheritance share immediately.",
-        "legal_sources": "3 kap. 1 § 1 st 2 m. ÄB 3 kap. 9 § ÄB"
+          "id": 13,
+          "outcome": "The spouse inherits without children.",
+          "legal_sources": "3 kap. 1 § 2 ÄB"
       },
       {
-        "id": "legal_order_inheritance_alt_will",
-        "outcome": "The legal order of inheritance alt. Will.",
-        "legal_sources": "3 kap. 1 § ÄB & e contrario 2 kap. 1-3 §§ ÄB 5 kap. 1 § ÄB"
+          "id": 14,
+          "outcome": "Children from another relationship have the right to their inheritance share immediately.",
+          "legal_sources": "3 kap. 1 § 1 st 2 m. ÄB 3 kap. 9 § ÄB"
+      },
+      {
+          "id": 15,
+          "outcome": "The spouse inherits with free disposal rights. Shared children have a right to subsequent inheritance.",
+          "legal_sources": "3 kap. 1 § 1 st. ÄB 3 kap. 2 § ÄB Prop. 1986/87:1 s. 2"
       }
-    ]
-  }
-  
+  ]
+}
