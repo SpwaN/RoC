@@ -29,47 +29,44 @@ document.addEventListener('DOMContentLoaded', function () {
 // Function to clear only the choice buttons, not the back button
 function clearChoices() {
     const buttonGroupContainer = document.getElementById('button-group-container');
-    buttonGroupContainer.innerHTML = '';
+    buttonGroupContainer.innerHTML = '';  
 }
 
 // Function to display question and dynamically generate choice buttons
 function displayQuestion(stepId) {
     const step = getStepById(stepId);
-    console.log("Current step:", step);
-
+    
     const backButton = document.getElementById('back-btn');
-    console.log('Button: ', backButton);
-    console.log('HStack: ', historyStack.length);
     
     // Show or hide the back button based on the history stack
     if (historyStack.length > 0) {
-        backButton.style.display = 'inline-block';
+        backButton.style.display = 'inline-block'; 
     } else {
-        backButton.style.display = 'none';
+        backButton.style.display = 'none'; 
     }
 
     if (step.question) {
+        // Update the question text and title
         document.querySelector('.modal-title').innerText = `Question ${currentQuestionNumber} - Questionnaire`;
-        // Update the question text
         document.getElementById('question-container').innerHTML = step.question;
-
-        // Clear the previous buttons (excluding the back button)
+        
         clearChoices();
 
-        const buttonGroupContainer = document.getElementById('button-group-container');
+        // Ensure buttons are visible using class toggles
+        document.getElementById('choices-container').classList.add('show-choices');
+        document.getElementById('button-group-container').classList.add('show-buttons');
+        document.getElementById('result-container').classList.remove('show-result');
 
         // Dynamically generate buttons based on the choices in the JSON
         for (const [choiceText, nextStepId] of Object.entries(step.choices)) {
             const button = document.createElement('button');
             button.innerText = choiceText;
             button.classList.add('btn', 'btn-primary', 'm-2');
-            button.onclick = () => handleAnswer(nextStepId); // Pass nextStepId to handleAnswer
-            buttonGroupContainer.appendChild(button); // Add buttons to the container
+            button.onclick = () => handleAnswer(nextStepId); 
+            document.getElementById('button-group-container').appendChild(button);
         }
 
-        // Ensure the choices container is visible
-        document.getElementById('choices-container').style.display = 'flex';
-        document.getElementById('result-container').innerHTML = ''; // Clear previous result
+        document.getElementById('result-container').innerHTML = '';
     } else if (step.outcome) {
         displayOutcome(step);
     }
@@ -83,10 +80,10 @@ function getStepById(id) {
 // Function to handle user's answer
 function handleAnswer(nextStepId) {
     if (nextStepId) {
-        historyStack.push(currentStepId);
-        currentStepId = nextStepId;
-        currentQuestionNumber++;
-        displayQuestion(currentStepId);
+        historyStack.push(currentStepId); 
+        currentStepId = nextStepId; 
+        currentQuestionNumber++; 
+        displayQuestion(currentStepId); 
     } else {
         console.error('Invalid answer or step ID');
     }
@@ -95,9 +92,9 @@ function handleAnswer(nextStepId) {
 // Function to go back to the previous step
 function goBack() {
     if (historyStack.length > 0) {
-        currentStepId = historyStack.pop();
-        currentQuestionNumber--;
-        displayQuestion(currentStepId);
+        currentStepId = historyStack.pop(); 
+        currentQuestionNumber--; 
+        displayQuestion(currentStepId); 
     }
 }
 
@@ -105,9 +102,15 @@ function goBack() {
 function displayOutcome(step) {
     document.querySelector('.modal-title').innerText = 'Result - Questionnaire';
     document.getElementById('question-container').innerHTML = '';
-    document.getElementById('button-group-container').style.display = 'none';
+    document.getElementById('choices-container').classList.remove('show-choices');
+    document.getElementById('button-group-container').classList.remove('show-buttons');
+    document.getElementById('result-container').classList.add('show-result');
+    const buttons = document.querySelectorAll('#button-group-container button');
+    buttons.forEach(button => {
+        button.style.display = 'none';
+    });
     document.getElementById('result-container').innerHTML = `
-        Outcome: ${step.outcome} <br>
-        Legal Sources: ${step.legal_sources}
+        <p>Outcome: ${step.outcome}</p>
+        <p>Legal Sources: ${step.legal_sources}</p>
     `;
 }
