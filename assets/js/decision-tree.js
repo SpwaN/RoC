@@ -69,6 +69,7 @@ function handleAnswer(answer) {
     
     if (nextStepId) {
         currentStepId = nextStepId;
+        currentQuestionNumber++;
         displayQuestion(currentStepId);
     } else {
         console.error('Invalid answer or step ID');
@@ -77,7 +78,7 @@ function handleAnswer(answer) {
 
 // Function to display the final outcome
 function displayOutcome(step) {
-    document.getElementById('.modal-title').innerText = 'Result - Questionnaire';
+    document.querySelector('.modal-title').innerText = 'Result - Questionnaire';
     document.getElementById('question-container').innerHTML = '';
     document.getElementById('choices-container').style.display = 'none';
     document.getElementById('result-container').innerHTML = `
