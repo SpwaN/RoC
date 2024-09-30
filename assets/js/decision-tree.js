@@ -2,6 +2,7 @@ let decisionTree = {};
 let currentStepId = 1;
 let currentQuestionNumber = 1;
 let historyStack = [];
+let answerHistory = [];
 
 // Load the decision tree JSON dynamically
 function loadDecisionTree() {
@@ -62,7 +63,7 @@ function displayQuestion(stepId) {
             const button = document.createElement('button');
             button.innerText = choiceText;
             button.classList.add('btn', 'btn-primary', 'm-2');
-            button.onclick = () => handleAnswer(nextStepId); 
+            button.onclick = () => handleAnswer(nextStepId, choiceText);
             document.getElementById('button-group-container').appendChild(button);
         }
 
@@ -96,6 +97,39 @@ function goBack() {
         currentQuestionNumber--; 
         displayQuestion(currentStepId); 
     }
+}
+
+// Function to handle user's answer
+function handleAnswer(nextStepId, answerText) {
+    if (nextStepId) {
+        const currentQuestion = document.getElementById('question-container').innerText;
+        answerHistory.push({
+            question: currentQuestion,
+            answer: answerText
+        });
+        updateHistoryUI();
+        historyStack.push(currentStepId);
+        currentStepId = nextStepId;
+        currentQuestionNumber++;
+        displayQuestion(currentStepId);
+    } else {
+        console.error('Invalid answer or step ID');
+    }
+}
+
+function updateHistoryUI() {
+    const historyList = document.getElementById('history-list');
+    historyList.innerHTML = '';
+
+    answerHistory.forEach((entry, index) => {
+        const listItem = document.createElement('li');
+        listItem.classList.add('list-group-item');
+        listItem.innerHTML = `<strong>Q${index + 1}:</strong> ${entry.question} <br><strong>A:</strong> ${entry.answer}`;
+        historyList.appendChild(listItem);
+    });
+
+    const historySection = document.getElementById('history-section');
+    historySection.scrollTop = historySection.scrollHeight;
 }
 
 // Function to display the final outcome
