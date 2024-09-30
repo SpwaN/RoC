@@ -14,7 +14,6 @@ function loadDecisionTree() {
         })
         .then(data => {
             decisionTree = data;
-            // Load the first question after JSON is loaded
             displayQuestion(currentStepId);
         })
         .catch(error => {
@@ -23,9 +22,15 @@ function loadDecisionTree() {
 }
 
 // Load the first question
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function () {
     loadDecisionTree();
-};
+});
+
+// Function to clear only the choice buttons, not the back button
+function clearChoices() {
+    const buttonGroupContainer = document.getElementById('button-group-container');
+    buttonGroupContainer.innerHTML = '';
+}
 
 // Function to display question and dynamically generate choice buttons
 function displayQuestion(stepId) {
@@ -35,28 +40,36 @@ function displayQuestion(stepId) {
     const backButton = document.getElementById('back-btn');
     console.log('Button: ', backButton);
     console.log('HStack: ', historyStack.length);
+    
+    // Show or hide the back button based on the history stack
+    if (historyStack.length > 0) {
+        backButton.style.display = 'inline-block';
+    } else {
+        backButton.style.display = 'none';
+    }
 
     if (step.question) {
         document.querySelector('.modal-title').innerText = `Question ${currentQuestionNumber} - Questionnaire`;
         // Update the question text
         document.getElementById('question-container').innerHTML = step.question;
 
-        // Clear the previous buttons
-        const choicesContainer = document.getElementById('choices-container');
-        choicesContainer.innerHTML = '';
+        // Clear the previous buttons (excluding the back button)
+        clearChoices();
+
+        const buttonGroupContainer = document.getElementById('button-group-container');
 
         // Dynamically generate buttons based on the choices in the JSON
         for (const [choiceText, nextStepId] of Object.entries(step.choices)) {
             const button = document.createElement('button');
-            button.innerText = choiceText; 
-            button.classList.add('btn', 'btn-primary', 'm-2'); 
-            button.onclick = () => handleAnswer(choiceText);
-            choicesContainer.appendChild(button);
+            button.innerText = choiceText;
+            button.classList.add('btn', 'btn-primary', 'm-2');
+            button.onclick = () => handleAnswer(nextStepId); // Pass nextStepId to handleAnswer
+            buttonGroupContainer.appendChild(button); // Add buttons to the container
         }
-        
-        // Ensure choices container is visible
-        document.getElementById('choices-container').style.display = 'block';
-        document.getElementById('result-container').innerHTML = '';
+
+        // Ensure the choices container is visible
+        document.getElementById('choices-container').style.display = 'flex';
+        document.getElementById('result-container').innerHTML = ''; // Clear previous result
     } else if (step.outcome) {
         displayOutcome(step);
     }
@@ -68,10 +81,7 @@ function getStepById(id) {
 }
 
 // Function to handle user's answer
-function handleAnswer(answer) {
-    const currentStep = getStepById(currentStepId);
-    const nextStepId = currentStep.choices[answer]; // Fetch the next step ID based on the user's choice
-    
+function handleAnswer(nextStepId) {
     if (nextStepId) {
         historyStack.push(currentStepId);
         currentStepId = nextStepId;
@@ -95,7 +105,7 @@ function goBack() {
 function displayOutcome(step) {
     document.querySelector('.modal-title').innerText = 'Result - Questionnaire';
     document.getElementById('question-container').innerHTML = '';
-    document.getElementById('choices-container').style.display = 'none';
+    document.getElementById('button-group-container').style.display = 'none';
     document.getElementById('result-container').innerHTML = `
         Outcome: ${step.outcome} <br>
         Legal Sources: ${step.legal_sources}
