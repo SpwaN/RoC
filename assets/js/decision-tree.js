@@ -25,11 +25,29 @@ window.onload = function() {
     loadDecisionTree();
 };
 
-// Function to display question
+// Function to display question and dynamically generate choice buttons
 function displayQuestion(stepId) {
     const step = getStepById(stepId);
+    console.log("Current step:", step);
+
     if (step.question) {
+        // Update the question text
         document.getElementById('question-container').innerHTML = step.question;
+
+        // Clear the previous buttons
+        const choicesContainer = document.getElementById('choices-container');
+        choicesContainer.innerHTML = '';
+
+        // Dynamically generate buttons based on the choices in the JSON
+        for (const [choiceText, nextStepId] of Object.entries(step.choices)) {
+            const button = document.createElement('button');
+            button.innerText = choiceText; // This will use the specific text from the JSON keys
+            button.classList.add('btn', 'btn-primary', 'm-2'); // Add Bootstrap classes for styling
+            button.onclick = () => handleAnswer(choiceText); // Pass the choice to handleAnswer
+            choicesContainer.appendChild(button);
+        }
+        
+        // Ensure choices container is visible
         document.getElementById('choices-container').style.display = 'block';
         document.getElementById('result-container').innerHTML = ''; // Clear previous result
     } else if (step.outcome) {
@@ -45,13 +63,13 @@ function getStepById(id) {
 // Function to handle user's answer
 function handleAnswer(answer) {
     const currentStep = getStepById(currentStepId);
-    const nextStepId = currentStep[answer];
+    const nextStepId = currentStep.choices[answer]; // Fetch the next step ID based on the user's choice
     
-    if (typeof nextStepId === 'string') {
-        displayOutcome(getStepById(nextStepId));
-    } else {
+    if (nextStepId) {
         currentStepId = nextStepId;
         displayQuestion(currentStepId);
+    } else {
+        console.error('Invalid answer or step ID');
     }
 }
 
