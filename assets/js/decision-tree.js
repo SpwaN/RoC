@@ -1,6 +1,7 @@
 let decisionTree = {};
 let currentStepId = 1;
 let currentQuestionNumber = 1;
+let historyStack = [];
 
 // Load the decision tree JSON dynamically
 function loadDecisionTree() {
@@ -30,6 +31,10 @@ window.onload = function() {
 function displayQuestion(stepId) {
     const step = getStepById(stepId);
     console.log("Current step:", step);
+
+    const backButton = document.getElementById('back-btn');
+    console.log('Button: ', backButton);
+    console.log('HStack: ', historyStack.length);
 
     if (step.question) {
         document.querySelector('.modal-title').innerText = `Question ${currentQuestionNumber} - Questionnaire`;
@@ -68,11 +73,21 @@ function handleAnswer(answer) {
     const nextStepId = currentStep.choices[answer]; // Fetch the next step ID based on the user's choice
     
     if (nextStepId) {
+        historyStack.push(currentStepId);
         currentStepId = nextStepId;
         currentQuestionNumber++;
         displayQuestion(currentStepId);
     } else {
         console.error('Invalid answer or step ID');
+    }
+}
+
+// Function to go back to the previous step
+function goBack() {
+    if (historyStack.length > 0) {
+        currentStepId = historyStack.pop();
+        currentQuestionNumber--;
+        displayQuestion(currentStepId);
     }
 }
 
