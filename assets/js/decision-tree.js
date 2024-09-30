@@ -1,5 +1,6 @@
 let decisionTree = {};
 let currentStepId = 1;
+let currentQuestionNumber = 1;
 
 // Load the decision tree JSON dynamically
 function loadDecisionTree() {
@@ -31,6 +32,7 @@ function displayQuestion(stepId) {
     console.log("Current step:", step);
 
     if (step.question) {
+        document.querySelector('.modal-title').innerText = `Question ${currentQuestionNumber} - Questionnaire`;
         // Update the question text
         document.getElementById('question-container').innerHTML = step.question;
 
@@ -75,6 +77,7 @@ function handleAnswer(answer) {
 
 // Function to display the final outcome
 function displayOutcome(step) {
+    document.getElementById('.modal-title').innerText = 'Result - Questionnaire';
     document.getElementById('question-container').innerHTML = '';
     document.getElementById('choices-container').style.display = 'none';
     document.getElementById('result-container').innerHTML = `
