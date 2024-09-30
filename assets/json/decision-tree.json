@@ -41,7 +41,8 @@
           "question": "Does the deceased/testator have children?",
           "choices": {
               "Children from another Relationship": 6,
-              "Shared Children": 13
+              "Shared Children": 13,
+              "Children with current spouse": 14
           },
           "legal_sources": "3 kap. 1 § ÄB"
       },
