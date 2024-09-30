@@ -95,6 +95,8 @@ function goBack() {
     if (historyStack.length > 0) {
         currentStepId = historyStack.pop(); 
         currentQuestionNumber--; 
+        answerHistory.pop();
+        updateHistoryUI();
         displayQuestion(currentStepId); 
     }
 }
@@ -131,6 +133,7 @@ function updateHistoryUI() {
     const historySection = document.getElementById('history-section');
     historySection.scrollTop = historySection.scrollHeight;
 }
+
 
 // Function to display the final outcome
 function displayOutcome(step) {
