@@ -278,6 +278,67 @@
       "id": 42,
       "outcome": "The cohabitant inherits according to the will.",
       "legal_sources": "7 kap. 3 § ÄB, 9 kap. 1 § ÄB"
-    }
+    },
+    {
+      "id": 43,
+      "question": "Were you and the deceased cohabiting but not married?",
+      "choices": {
+        "Yes": 44,
+        "No": 16
+      },
+      "legal_sources": "SamboL 18 § 2 st"
+    },
+    {
+      "id": 44,
+      "question": "Is there a valid will where the testator mentioned the cohabitant?",
+      "choices": {
+        "Yes": 45,
+        "No": 46
+      },
+      "legal_sources": "9 kap. 1 § ÄB"
+    },
+    {
+      "id": 45,
+      "outcome": "The cohabitant inherits according to the will, unless contested by any surviving children or heirs.",
+      "legal_sources": "9 kap. 1 § ÄB, 11 kap. 1 § 1 st. ÄB, Prop. 1986/87:1 s. 85"
+    },
+    {
+      "id": 46,
+      "outcome": "As there is no mention of the cohabitant in the will, the cohabitant has no inheritance rights but is entitled to 2 price base amounts for security.",
+      "legal_sources": "SamboL 18 § 2 st"
+    },
+    {
+      "id": 47,
+      "question": "Have any children contested the will?",
+      "choices": {
+        "Yes": 48,
+        "No": 49
+      },
+      "legal_sources": "7 kap. 1 and 3 §§ ÄB"
+    },
+    {
+      "id": 48,
+      "outcome": "The children receive their statutory share, and the cohabitant inherits any remaining assets as stipulated in the will.",
+      "legal_sources": "7 kap. 3 § ÄB, 9 kap. 1 § ÄB, 11 kap. 1 § ÄB"
+    },
+    {
+      "id": 49,
+      "outcome": "The cohabitant inherits all assets as directed by the will.",
+      "legal_sources": "9 kap. 1 § ÄB"
+    },
+    {
+      "id": 50,
+      "question": "Do both shared children and children from another relationship exist?",
+      "choices": {
+        "Yes": 51,
+        "No": 6
+      },
+      "legal_sources": "3 kap. 1 § ÄB"
+    },
+    {
+      "id": 51,
+      "outcome": "The spouse inherits the shared children's inheritance share with free disposal rights, but children from another relationship receive their inheritance immediately.",
+      "legal_sources": "3 kap. 1 § 1 st. 2 m. ÄB, 3 kap. 9 § ÄB"
+    }    
   ]
 }
