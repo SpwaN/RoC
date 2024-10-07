@@ -5,7 +5,7 @@
       "question": "Was the deceased/testator married?",
       "choices": {
         "Yes": 2,
-        "No": 16
+        "No": 43
       },
       "legal_sources": "3 kap. 1 § ÄB & e contrario 2 kap. 1-3 §§ ÄB 5 kap. 1 § ÄB"
     },
@@ -202,82 +202,6 @@
       "id": 30,
       "outcome": "The spouse inherits according to the will.",
       "legal_sources": "7 kap. 3 § 1 and 3 st. ÄB, 9 kap. 1 § ÄB, 11 kap. 1 § 1 st. ÄB, Prop. 1986/87:1 s. 85"
-    },
-    {
-      "id": 31,
-      "question": "Have the children from another relationship waived their inheritance rights in favor of the surviving spouse?",
-      "choices": {
-        "Yes": 32,
-        "No": 33
-      },
-      "legal_sources": "3 kap. 9 § ÄB"
-    },
-    {
-      "id": 32,
-      "outcome": "The spouse inherits the entire inheritance with free disposal rights, as the shared children and children from another relationship will both inherit subsequently.",
-      "legal_sources": "3 kap. 1 § 1 st. ÄB, 3 kap. 9 § ÄB, 3 kap. 2 § 1 st. 2 m. ÄB, Prop. 1986/87:1 s. 2"
-    },
-    {
-      "id": 33,
-      "outcome": "The spouse does not inherit the inheritance share of children from another relationship, as the children are entitled to their share immediately. The spouse inherits the shared children's share with free disposal rights, as they have a right to subsequent inheritance.",
-      "legal_sources": "3 kap. 1 § 1 st. ÄB, 3 kap. 2 § 1 st. 2 m. ÄB, Prop. 1986/87:1 s. 2"
-    },
-    {
-      "id": 34,
-      "question": "Have the children contested the will?",
-      "choices": {
-        "Yes": 35,
-        "No": 36
-      },
-      "legal_sources": "7 kap. 3 § ÄB"
-    },
-    {
-      "id": 35,
-      "outcome": "The children receive their statutory share as a subsequent inheritance, meaning the spouse inherits the rest according to the will.",
-      "legal_sources": "7 kap. 3 § ÄB, 9 kap. 1 § ÄB, 11 kap. 1 § 1 st. ÄB, Prop. 1986/87:1 s. 85"
-    },
-    {
-      "id": 36,
-      "outcome": "The spouse inherits according to the will.",
-      "legal_sources": "7 kap. 3 § ÄB, 9 kap. 1 § ÄB, 11 kap. 1 § 1 st. ÄB, Prop. 1986/87:1 s. 85"
-    },
-    {
-      "id": 37,
-      "question": "Is the will directed to the cohabitant?",
-      "choices": {
-        "Yes": 38,
-        "No": 39
-      },
-      "legal_sources": "9 kap. 1 § ÄB, 11 kap. 1 § 1 st. ÄB"
-    },
-    {
-      "id": 38,
-      "outcome": "The cohabitant inherits according to the will, unless contested by the children.",
-      "legal_sources": "9 kap. 1 § ÄB, 11 kap. 1 § 1 st. ÄB, Prop. 1986/87:1 s. 85"
-    },
-    {
-      "id": 39,
-      "outcome": "As the cohabitant was not included in the will, no inheritance rights are given.",
-      "legal_sources": "11 kap. 8 § ÄB"
-    },
-    {
-      "id": 40,
-      "question": "Have any of the children contested the will?",
-      "choices": {
-        "Yes": 41,
-        "No": 42
-      },
-      "legal_sources": "7 kap. 3 § ÄB"
-    },
-    {
-      "id": 41,
-      "outcome": "The children receive their statutory share, while the cohabitant inherits the rest according to the will.",
-      "legal_sources": "7 kap. 3 § ÄB, 9 kap. 1 § ÄB"
-    },
-    {
-      "id": 42,
-      "outcome": "The cohabitant inherits according to the will.",
-      "legal_sources": "7 kap. 3 § ÄB, 9 kap. 1 § ÄB"
     },
     {
       "id": 43,
