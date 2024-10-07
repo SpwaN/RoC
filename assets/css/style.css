@@ -11,8 +11,39 @@
     overflow-y: auto; 
 }
 
+
 body {
     background-color: #e3f2fd !important;
     font-family: Arial, sans-serif;
     color: #333;
+}
+
+.history-section {
+    position: absolute !important;
+    right: -260px;
+    width: 250px;
+    height: 40vh;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 0 10px 10px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-height: 100vh;
+    overflow-y: auto !important; 
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.history-section h5 {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+    z-index: 100;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-group-item {
+    margin-bottom: 5px;
 }
