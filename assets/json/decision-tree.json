@@ -5,13 +5,13 @@
       "question": "Were you and the deceased married?",
       "choices": {
         "Yes": 2,
-        "No": 16
+        "No": 33
       },
       "legal_sources": "3 kap. 1 § ÄB"
     },
     {
       "id": 2,
-      "question": "Was there an ongoing divorce case at the time of the deceased’s death?",
+      "question": "Was there a pending divorce case at the time of the deceased’s death?",
       "choices": {
         "Yes": 3,
         "No": 4
@@ -20,7 +20,7 @@
     },
     {
       "id": 3,
-      "outcome": "No inheritance right for the spouse.",
+      "outcome": "No inheritance right.",
       "legal_sources": "3 kap. 10 § ÄB, 11 kap. 8 § ÄB"
     },
     {
@@ -39,20 +39,20 @@
     },
     {
       "id": 6,
-      "question": "Does the deceased have any surviving children?",
+      "question": "Does the deceased have any surviving descendants?",
       "choices": {
         "Yes": 7,
-        "No": 13
+        "No": 21
       },
       "legal_sources": "3 kap. 1 § ÄB"
     },
     {
       "id": 7,
-      "question": "What type of descendants are there?",
+      "question": "From where are the descendants?",
       "choices": {
         "Children from another relationship and their descendants": 8,
-        "Shared children and their descendants": 10,
-        "Both shared children and children from another relationship": 12
+        "Shared children and their descendants": 9,
+        "Both shared children and children from another relationship": 14
       },
       "legal_sources": "3 kap. 1 § ÄB"
     },
@@ -60,10 +60,10 @@
       "id": 8,
       "question": "Have they waived their inheritance rights in favour of the surviving spouse?",
       "choices": {
-        "Yes": 9,
+        "Yes": 10,
         "No": 11
       },
-      "legal_sources": "3 kap. 1 § ÄB"
+      "legal_sources": "3 kap. 9 § ÄB"
     },
     {
       "id": 9,
@@ -82,12 +82,8 @@
     },
     {
       "id": 12,
-      "question": "Have the children from another relationship waived their inheritance rights in favour of the surviving spouse?",
-      "choices": {
-        "Yes": 9,
-        "No": 11
-      },
-      "legal_sources": "3 kap. 9 § ÄB, Prop. 1986/87:1 s. 2"
+      "outcome": "The spouse will inherit according to the will.",
+      "legal_sources": "7 kap. 3 § ÄB, 9 kap. 1 § ÄB, 11 kap. 1 § ÄB, Prop. 1986/87:1 s. 85"
     },
     {
       "id": 13,
@@ -96,17 +92,17 @@
     },
     {
       "id": 14,
-      "question": "Does the deceased have any surviving parents or siblings?",
+      "question": "Have the children from another relationship waived their inheritance rights?",
       "choices": {
-        "Yes": 15,
-        "No": 13
+        "Yes": 10,
+        "No": 11
       },
-      "legal_sources": "3 kap. 1 § ÄB, 3 kap. 2 § ÄB"
+      "legal_sources": "3 kap. 9 § ÄB"
     },
     {
       "id": 15,
-      "outcome": "The spouse inherits with free disposal rights.",
-      "legal_sources": "3 kap. 1 § ÄB, 3 kap. 2 § ÄB, SOU 1998:110 s. 83"
+      "outcome": "The spouse inherits with free disposal rights, and the children inherit their statutory share.",
+      "legal_sources": "3 kap. 9 § ÄB, Prop. 1986/87:1 s. 2"
     },
     {
       "id": 16,
@@ -143,27 +139,102 @@
     },
     {
       "id": 21,
-      "question": "Have any children contested the will?",
+      "question": "Does the deceased have any surviving parents or siblings?",
       "choices": {
         "Yes": 22,
         "No": 23
       },
-      "legal_sources": "7 kap. 1 and 3 §§ ÄB"
+      "legal_sources": "3 kap. 1 § ÄB"
     },
     {
       "id": 22,
-      "outcome": "The children receive their statutory share as a subsequent inheritance, meaning the spouse inherits the rest according to the will.",
-      "legal_sources": "7 kap. 3 § ÄB, 9 kap. 1 § ÄB, 11 kap. 1 § ÄB, Prop. 1986/87:1 s. 85"
+      "outcome": "The spouse inherits with free disposal rights.",
+      "legal_sources": "3 kap. 1 § ÄB, 3 kap. 2 § ÄB"
     },
     {
       "id": 23,
+      "outcome": "The spouse inherits with full ownership.",
+      "legal_sources": "3 kap. 1 § ÄB, SOU 1998:110 s. 83"
+    },
+    {
+      "id": 24,
+      "question": "Have any children contested the will?",
+      "choices": {
+        "Yes": 25,
+        "No": 26
+      },
+      "legal_sources": "7 kap. 3 § ÄB"
+    },
+    {
+      "id": 25,
+      "outcome": "The children receive their statutory share as a subsequent inheritance, meaning the spouse inherits the rest according to the will.",
+      "legal_sources": "7 kap. 3 § ÄB, 9 kap. 1 § ÄB, 11 kap. 1 § ÄB"
+    },
+    {
+      "id": 26,
       "outcome": "The spouse inherits according to the will.",
       "legal_sources": "7 kap. 3 § ÄB, 9 kap. 1 § ÄB, 11 kap. 1 § ÄB"
     },
     {
-      "id": 24,
+      "id": 33,
+      "outcome": "As you were not married to the deceased nor mentioned as a beneficiary in a will, you have no inheritance right. However, you are entitled to 2 price base amounts for security.",
+      "legal_sources": "SamboL 18 § 2 st, 9 kap. 1 § ÄB, 3 kap. 1 § e contrario"
+    },
+    {
+      "id": 34,
+      "question": "Is there a will in which the testator has mentioned you as a beneficiary?",
+      "choices": {
+        "Yes": 35,
+        "No": 33
+      },
+      "legal_sources": "9 kap. 1 § ÄB"
+    },
+    {
+      "id": 35,
+      "question": "Were you still in a relationship when the deceased died?",
+      "choices": {
+        "Yes": 36,
+        "No": 37
+      },
+      "legal_sources": "11 kap. 8 § ÄB"
+    },
+    {
+      "id": 36,
+      "question": "Does the testator have any surviving children?",
+      "choices": {
+        "Yes": 38,
+        "No": 39
+      },
+      "legal_sources": "7 kap. 3 § ÄB"
+    },
+    {
+      "id": 37,
+      "outcome": "The will is not valid anymore. Hence, you have no inheritance right.",
+      "legal_sources": "11 kap. 8 § ÄB"
+    },
+    {
+      "id": 38,
+      "question": "Have any of the children contested the will?",
+      "choices": {
+        "Yes": 40,
+        "No": 41
+      },
+      "legal_sources": "7 kap. 1 and 3 §§ ÄB"
+    },
+    {
+      "id": 39,
+      "outcome": "The cohabitant inherits any assets designated to them as stipulated in the will.",
+      "legal_sources": "9 kap. 1 § ÄB, 11 kap. 1 § ÄB"
+    },
+    {
+      "id": 40,
+      "outcome": "The children receive their statutory share, and the cohabitant inherits any remaining assets as stipulated in the will.",
+      "legal_sources": "7 kap. 3 § ÄB, 9 kap. 1 § ÄB, 11 kap. 1 § ÄB"
+    },
+    {
+      "id": 41,
       "outcome": "The cohabitant inherits according to the will apart from the statutory share of the inheritance, which the children have a right to receive.",
-      "legal_sources": "7 kap. 3 § ÄB, 9 kap. 1 § ÄB, Prop. 1986/87:1 s. 85"
+      "legal_sources": "7 kap. 1 and 3 §§ ÄB, 9 kap. 1 § ÄB"
     }
   ]
 }
